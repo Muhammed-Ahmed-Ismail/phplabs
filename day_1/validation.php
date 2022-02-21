@@ -16,39 +16,41 @@
     $Name="";
     $Email="";
     $Sent_Message="";
-
+    print_r($_POST);
     if(isset($_POST["submit"])) {
-        if (empty($_POST["name"])) {
-            $Messages .= "<p> name is required</p>";
+
+        if (strlen(trim($_POST["name"])) == 0) {
+            $Messages .= "<p style='color: red'> name is required</p>";
         }else{$Name=$_POST["name"];}
         if(strlen($_POST["name"])>100)
         {
-            $Messages.="<p>Name can not be more than 100 charachters";
+            $Messages.="<p style='color: red'>Name can not be more than 100 charachters</p>";
         }
-        if (empty($_POST["email"]))
+        if ( strlen(trim($_POST["email"])) == 0)
         {
-            $Messages .= "<p> email is required</p>";
+            echo "d";
+            $Messages .= "<p style='color: red'> email is required</p>";
         }else{$Email=$_POST["email"];}
         if(!filter_var($_POST["email"],FILTER_VALIDATE_EMAIL))
         {
-            $Messages.="<p>Invalid mail</p>";
+            $Messages .="<p style='color: red'>Invalid mail</p>";
         }
 
-        if (empty($_POST["message"])) {
-            $Messages .= "<p> message is required</p>";
+        if (strlen(trim($_POST["message"])) == 0) {
+            $Messages .= "<p style='color: red'> message is required</p>";
         }else{$Sent_Message=$_POST["message"];}
         if(strlen($_POST["message"])>255)
         {
-            $Messages.="<p> message length cannot be more than 255 charachters";
+            $Messages.="<p style='color: red'> message length cannot be more than 255 charachters</p>";
         }
 
         if (!empty($Messages)) {
             echo $Messages;
         } else {
             $Success_message.="</br>";
-            $Success_message.="<p> your name is :".$_POST["name"]."</p> </br> ";
-            $Success_message.="<p> your mail is :".$_POST["email"]."</p> </br> ";
-            $Success_message.="<p> your message is :".$_POST["message"]."</p> </br> ";
+            $Success_message.="<h3  style='color: green'>your name is :<h3></br><p>".$_POST["name"]."</p>  ";
+            $Success_message.="<h3  style='color: green'>your email is :<h3></br><p>".$_POST["email"]."</p>  ";
+            $Success_message.="<h3  style='color: green'>your meaaage  is :<h3></br><p>".$_POST["message"]."</p> ";
             die($Success_message);}
     }
     ?>
