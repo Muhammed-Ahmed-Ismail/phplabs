@@ -17,7 +17,7 @@
     $Success_message="<p> thank you we recieved your message </p>";
     $Name="";
     $Email="";
-    $Sent_Message=" ";
+    $Sent_Message="";
     if(!isset($_SESSION["visited_befor"]))
     {
         $_SESSION["visited_befor"]=true;
