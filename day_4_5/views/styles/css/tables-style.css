@@ -1,0 +1,17 @@
+
+td
+{
+    border-bottom: 2px solid black;
+    height: 45px;
+    width: 100px;
+    margin: 10px;
+    text-align: center;
+}
+th
+{
+    font-size: 24px;
+}
+tr:nth-of-type(even)
+{
+    background-color: #dddddd;
+}
